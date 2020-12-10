@@ -23,8 +23,9 @@ def numberOfWays(i):  # i is array index
         return ways[i]
     total = 0
     # look ahead in array, only compare to values that differ by at most 3
-    for [j in [i+1, i+2, i+3] if j < len(input) and input[j] - input[i] <= 3]:
-        total += numberOfWays(j)
+    for j in [i+1, i+2, i+3]:
+        if j < len(input) and input[j] - input[i] <= 3:
+            total += numberOfWays(j)
     ways[i] = total
     return total
 
